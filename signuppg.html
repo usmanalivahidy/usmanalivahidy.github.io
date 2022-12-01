@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+    <meta charset="utf-8" />
+    <title>Sign in</title>
+    <style>
+     
+
+
+  input[type=text], input[type=password] {
+  width: 100%;
+  margin: 5.5px 0px 20px 1px;
+  display: inline-block;
+  background: whitesmoke;
+  border: none;
+  padding: 18px;
+}
+hr {
+  border: 2px solid white;
+  margin-bottom: 23px;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: white;
+  outline: none;
+}
+
+
+button {
+  background-color:orangered;
+  color: white;
+  padding: 15px 21px;
+  margin: 10px 0px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.8;
+}
+
+button:hover {
+  opacity: 2;;
+}
+
+
+
+
+.signupbtn {
+  float: left;
+  width: 45%;
+}
+
+
+.signupform {
+  padding: 16px;
+}
+@media screen and (max-width: 303px) {
+.signupbtn {
+    width: 100%;
+  }
+}
+
+
+.submit::after {
+  content: " ";
+  clear: both;
+  display: table;
+}
+body{
+  background-color: black;
+  color: orangered;
+  font-size: 18px;
+}
+.title{
+  background-color: maroon;
+  color: orange;
+  text-align: center;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
+
+</style>
+
+
+
+
+
+
+</head> 
+<header>
+  <h1 class="title">Sunway Animal Awareness Creation Society (SAACS)</h1>
+</header>
+<body>
+<main>
+<form action="intropg.html" name="signup"  onsubmit="return formvalidation()">
+  <div class="signupform">
+    <h1>Sign Up</h1>
+    <h2>Please sign up to access the website and receive updates about future articles</h2>
+    <hr>
+
+    <label for="e-mail"><strong>E-mail</strong></label>
+    <input type="text" placeholder="Please enter your E-mail" name="e-mail"  >
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Please enter a password of minimum 6 characters " name="password"  >
+
+    <label for="confirm password"><b>Confirm Password</b></label>
+    <input type="password" placeholder="Please confirm your Password" name="password-repeat"  >
+    <div class="submit">
+      
+      <button type="submit" class="signupbtn">Sign Up</button> 
+    </div>
+  </div>
+
+
+    
+
+    
+  </div>
+
+</form>
+
+</body>
+<script>
+  function formvalidation() {
+    var Email = document.forms["signup"]["e-mail"].value;
+    var psw = document.forms["signup"]["password"].value;
+    var cpsw = document.forms["signup"]["password-repeat"].value;
+    
+   
+    if (
+      Email == "" ||
+      Email == null ||
+      psw == "" ||
+      psw == null ||
+      cpsw == "" ||
+      cpsw == null 
+      
+    ) {
+      alert("Please fill in all the required details");
+      return false;
+    }
+    
+    if(psw.length < 6){
+      alert("Please enter a password of minimum 6 characters")
+      return false;
+    
+    }
+    
+    
+    if(
+      psw !=cpsw)
+      {
+        alert("The confirm password does not match the original password ")
+        return false;
+      }
+    /*note the note part doesnt validate the .com part
+    if(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(Email))
+    {
+      return true;
+    }
+  else{
+    alert("please enter a valid e-mail address")
+    return false;
+
+  }*/
+    
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Email))
+  {
+    return (true)
+  }
+  else{
+    alert("You have entered an invalid e-mail!! Please enter a valid e-mail address format")
+    return (false)}
+
+    
+  }
+</script>
+</main>
+</html>
